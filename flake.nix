@@ -52,13 +52,13 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      # FIXME replace with your hostname
-      your-hostname = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          # > Our main nixos configuration file <
-          ./nixos/configuration.nix
-        ];
+      your-hostname-1 = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [ ./hosts/your-hostname-1/configuration.nix ];
+      };
+      your-hostname-2 = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [ ./hosts/your-hostname-2/configuration.nix ];
       };
     };
 
