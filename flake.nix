@@ -3,15 +3,21 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-24.11";
+    };
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+    };
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -55,14 +61,28 @@
       };
     };
 
+    # nix-darwin configuration entrypoing
+    # Available through 'darwin-rebuild build --flake .#$your_hostname'
+    darwinConfigurations =
+      lib.custom.mkDarwinConfig {
+          username = "keon";
+          hostname = "zaurak";
+          system = "aarch64-darwin";
+      };
+
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      # FIXME replace with your username@hostname
       "keon@alioth" = lib.custom.mkHomeConfig {
         username = "keon";
         hostname = "alioth";
         system = "x86_64-linux";
+      };
+
+      "keon@zaurak" = lib.custom.mkHomeConfig {
+        username = "keon";
+        hostname = "zaurak";
+        system = "aarch64-darwin";
       };
     };
   };
