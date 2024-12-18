@@ -63,12 +63,11 @@
 
     # nix-darwin configuration entrypoing
     # Available through 'darwin-rebuild build --flake .#$your_hostname'
-    darwinConfigurations =
-      lib.custom.mkDarwinConfig {
-          username = "keon";
-          hostname = "zaurak";
-          system = "aarch64-darwin";
-      };
+    darwinConfigurations = lib.custom.mkDarwinConfig {
+      username = "keon";
+      hostname = "zaurak";
+      system = "aarch64-darwin";
+    };
 
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
