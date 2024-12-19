@@ -18,6 +18,21 @@ in {
         ++ extraModules;
     };
 
+  mkDarwinConfig = {
+    username,
+    hostname,
+    system,
+    extraModules ? [],
+  }:
+    nix-darwin.lib.darwinSystem {
+      specialArgs = {inherit inputs outputs system;};
+      modules =
+        [
+          ../hosts/${hostname}
+        ]
+        ++ extraModules;
+    };
+
   mkHomeConfig = {
     username,
     hostname,
@@ -30,21 +45,6 @@ in {
       modules =
         [
           ../home/${username}/${hostname}.nix
-        ]
-        ++ extraModules;
-    };
-
-  mkDarwinConfig = {
-    username,
-    hostname,
-    system,
-    extraModules ? [],
-  }:
-    nix-darwin.lib.darwinSystem {
-      specialArgs = {inherit inputs outputs system;};
-      modules =
-        [
-          ../hosts/${hostname}
         ]
         ++ extraModules;
     };

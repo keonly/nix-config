@@ -1,7 +1,7 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
     ./fish.nix
-    ./nu.nix
+    ./nushell.nix
     ./zsh.nix
   ];
 }

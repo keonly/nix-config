@@ -7,6 +7,6 @@
   systemd.user.startServices = "sd-switch";
 
   imports = [
-    ../common
+    ../common/global
   ];
 }

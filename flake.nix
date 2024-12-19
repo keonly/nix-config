@@ -13,6 +13,12 @@
     };
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
+    # Nix-Darwin
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
@@ -62,11 +68,13 @@
     };
 
     # nix-darwin configuration entrypoing
-    # Available through 'darwin-rebuild build --flake .#$your_hostname'
-    darwinConfigurations = lib.custom.mkDarwinConfig {
-      username = "keon";
-      hostname = "zaurak";
-      system = "aarch64-darwin";
+    # Available through 'darwin-rebuild switch --flake .#$your_hostname'
+    darwinConfigurations = {
+      "zaurak" = lib.custom.mkDarwinConfig {
+        username = "keon";
+        hostname = "zaurak";
+        system = "aarch64-darwin";
+      };
     };
 
     # Standalone home-manager configuration entrypoint

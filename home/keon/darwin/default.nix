@@ -4,6 +4,11 @@
   };
 
   imports = [
-    ../common
+    ../common/global
+  ];
+
+  programs.kitty.darwinLaunchOptions = [
+    "--single-instance"
+    "--directory ~"
   ];
 }
