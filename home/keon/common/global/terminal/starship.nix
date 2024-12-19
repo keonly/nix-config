@@ -102,6 +102,7 @@
           Debian = " 󰣚";
           Redhat = " 󱄛";
           RedHatEnterprise = " 󱄛";
+          NixOS = " 󱄅";
         };
       };
 
