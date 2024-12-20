@@ -16,6 +16,8 @@
 
   # Enable home-manager
   programs.home-manager.enable = true;
+  # Enable XDG
+  xdg.enable = true;
 
   home = {
     username = "keon";
