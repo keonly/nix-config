@@ -1,5 +1,5 @@
 {...}: {
-  programs.yazi = {
+  programs.zoxide = {
     enable = true;
 
     # Shell integrations
@@ -7,14 +7,5 @@
     enableFishIntegration = true;
     enableNushellIntegration = true;
     enableZshIntegration = true;
-
-    settings = {
-      manager = {
-        show_hidden = true;
-        sort_dir_first = true;
-      };
-    };
-
-    # TODO: Plugins
   };
 }

@@ -2,10 +2,10 @@
   imports = [
     ./bat
     ./btop
-    ./eza
-    ./k9s
+    ./eza.nix
     ./lazygit
     ./yazi
+    ./zoxide.nix
   ];
 
   home.packages = with pkgs; [
@@ -23,7 +23,6 @@
     gnutar
 
     # utils
-    zoxide
     ripgrep
     jq
     yq-go

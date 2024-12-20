@@ -4,13 +4,9 @@
   config,
   ...
 }: {
-  options = {
-    fish.enable = lib.mkEnableOption "enables fish";
-  };
+  environment.systemPackages = lib.mkMerge [
+    (with pkgs; [fish])
+  ];
 
-  config = lib.mkIf config.fish.enable {
-    environment.systemPackages = lib.mkMerge [
-      (with pkgs; [fish])
-    ];
-  };
+  programs.fish.enable = true;
 }

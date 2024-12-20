@@ -25,7 +25,7 @@ in {
     extraModules ? [],
   }:
     nix-darwin.lib.darwinSystem {
-      specialArgs = {inherit inputs outputs system;};
+      specialArgs = {inherit inputs outputs system username;};
       modules =
         [
           ../hosts/${hostname}
@@ -41,7 +41,7 @@ in {
   }:
     home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
-      extraSpecialArgs = {inherit inputs outputs;};
+      extraSpecialArgs = {inherit inputs outputs system username;};
       modules =
         [
           ../home/${username}/${hostname}.nix

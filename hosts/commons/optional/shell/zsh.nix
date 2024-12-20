@@ -4,13 +4,9 @@
   config,
   ...
 }: {
-  options = {
-    zsh.enable = lib.mkEnableOption "enables zsh";
-  };
+  environment.systemPackages = lib.mkMerge [
+    (with pkgs; [zsh])
+  ];
 
-  config = lib.mkIf config.zsh.enable {
-    environment.systemPackages = lib.mkMerge [
-      (with pkgs; [zsh])
-    ];
-  };
+  programs.zsh.enable = true;
 }

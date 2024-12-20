@@ -33,7 +33,11 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    lib = nixpkgs.lib.extend (self: super: {custom = import ./lib {inherit self inputs;};});
+    lib = nixpkgs.lib.extend (self: super: {
+      custom = import ./lib {
+        inherit self inputs;
+      };
+    });
     # Supported systems for your flake packages, shell, etc.
     systems = [
       "x86_64-linux"

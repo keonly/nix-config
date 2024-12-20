@@ -16,7 +16,6 @@
     settings = {
       enabled_layouts = "splits";
       confirm_os_window_close = "0";
-      shell = "fish";
       editor = "nvim";
       cursor_shape = "beam";
       focus_follows_mouse = "true";
