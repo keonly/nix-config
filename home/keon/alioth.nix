@@ -8,5 +8,8 @@
 }: {
   imports = [
     ./linux
+    ./linux/wm
   ];
+
+  programs.kitty.settings.shell = "nu";
 }
