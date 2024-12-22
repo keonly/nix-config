@@ -8,7 +8,7 @@
 }: {
   imports = [
     ./linux
-    ./linux/wm
+    ./linux/hypr
   ];
 
   programs.kitty.settings.shell = "nu";

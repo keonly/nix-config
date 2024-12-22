@@ -31,7 +31,7 @@
       };
 
       decoration = {
-        rounding = 0;
+        rounding = 9;
         blur = {
           enabled = true;
           size = 8;
@@ -71,13 +71,13 @@
           "$mod, return, exec, kitty"
 
           "$mod, Q, killactive"
-	  "$mod, F, fullscreen, 1"
-	  "$mod, M, fullscreen, 0"
-	  "$mod, S, pin"
+          "$mod, F, fullscreen, 1"
+          "$mod, M, fullscreen, 0"
+          "$mod, S, pin"
           "$mod, T, togglefloating"
 
           "$mod, Tab, cyclenext"
-	  "$mod, Tab, bringactivetotop"
+          "$mod, Tab, bringactivetotop"
 
           "$mod, h, movefocus, l"
           "$mod, l, movefocus, r"
