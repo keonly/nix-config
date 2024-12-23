@@ -10,5 +10,5 @@
     ./darwin
   ];
 
-  programs.kitty.settings.shell = "zsh --login -c 'nu --login --interactive'";
+  programs.kitty.settings.shell = "zsh --login -c 'fish --login --interactive'";
 }
