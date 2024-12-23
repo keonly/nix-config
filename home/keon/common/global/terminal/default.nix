@@ -2,6 +2,6 @@
   imports = [
     ./kitty
     ./starship.nix
-    ./tmux.nix
+    ./tmux
   ];
 }
