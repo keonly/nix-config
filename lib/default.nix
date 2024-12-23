@@ -44,7 +44,7 @@ in {
       extraSpecialArgs = {inherit inputs outputs system username;};
       modules =
         [
-          ../home/${username}/${hostname}.nix
+          ../home/${hostname}.nix
         ]
         ++ extraModules;
     };
