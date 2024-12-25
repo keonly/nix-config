@@ -11,5 +11,5 @@
     ./linux/hypr
   ];
 
-  programs.kitty.settings.shell = "nu";
+  programs.kitty.settings.shell = "fish";
 }
