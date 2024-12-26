@@ -6,7 +6,7 @@
       noto-fonts-cjk-sans
       noto-fonts-emoji
       sarasa-gothic
-      (nerdfonts.override {fonts = ["Iosevka"];})
+      nerd-fonts.iosevka
       iosevka
     ];
   };
