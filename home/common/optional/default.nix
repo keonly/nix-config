@@ -1,5 +1,6 @@
 {...}: {
   imports = [
-    ./work
+    ./awscli.nix
+    ./password-store.nix
   ];
 }

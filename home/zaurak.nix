@@ -8,6 +8,7 @@
 }: {
   imports = [
     ./darwin
+    ./common/optional
   ];
 
   programs.kitty.settings.shell = "zsh --login -c 'fish --login --interactive'";
@@ -15,4 +16,7 @@
     set -gu default-command
     set -g default-shell /run/current-system/sw/bin/fish
   '';
+
+  # awscli.enable = true;
+  # password-store.enable = true;
 }
