@@ -10,6 +10,7 @@
     ../commons/darwin
     ../commons/optional/shell/fish.nix
     ../commons/optional/shell/zsh.nix
+    ../commons/optional/cli/croc.nix
     ./system.nix
   ];
 
