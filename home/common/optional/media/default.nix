@@ -1,6 +1,5 @@
 {...}: {
   imports = [
-    ./cloud
-    ./media
+    ./spotify-player.nix
   ];
 }

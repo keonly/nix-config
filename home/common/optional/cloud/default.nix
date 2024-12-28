@@ -1,6 +1,5 @@
 {...}: {
   imports = [
-    ./cloud
-    ./media
+    ./awscli.nix
   ];
 }
