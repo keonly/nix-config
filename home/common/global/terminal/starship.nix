@@ -36,7 +36,7 @@
         "$python"
         "$conda"
         "[ ](bg:green fg:text)"
-        "$docker_context"
+        "$nix_shell"
         "[ ](bg:blue fg:text)"
         "$kubernetes"
         "$time"
@@ -223,10 +223,10 @@
       };
 
       # Docker context module configuration
-      docker_context = {
-        symbol = "󰡨";
+      nix_shell = {
+        symbol = "󱄅";
         style = "bg:green fg:base";
-        format = "[[$symbol $context ]($style)]($style)";
+        format = "[[$symbol $name\\($state\\) ]($style)]($style)";
       };
 
       # Kubernetes module configuration
