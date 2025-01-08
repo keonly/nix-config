@@ -17,6 +17,10 @@
         position = "command";
         expansion = "nvim";
       };
+      yz = {
+        position = "command";
+        expansion = "yazi";
+      };
     };
   };
 }
