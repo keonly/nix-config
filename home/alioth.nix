@@ -8,6 +8,7 @@
 }: {
   imports = [
     ./linux
+    ./linux/gtk
     ./linux/hypr
     ./common/optional
   ];
