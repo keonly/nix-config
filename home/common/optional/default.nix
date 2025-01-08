@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./cloud
+    ./dev
     ./media
   ];
 }

@@ -44,6 +44,10 @@
         alt-shift-8 = "move-node-to-workspace 8";
         alt-shift-9 = "move-node-to-workspace 9";
 
+        alt-f = "fullscreen";
+        alt-t = "layout tiles floating";
+        alt-g = "layout tiles v_accordion";
+
         alt-enter = "exec-and-forget open -n -a kitty";
       };
     };
