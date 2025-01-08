@@ -1,4 +1,8 @@
-{inputs, lib, ...}: {
+{
+  inputs,
+  lib,
+  ...
+}: {
   imports = [inputs.hyprpanel.homeManagerModules.hyprpanel];
 
   programs.hyprpanel = {
@@ -55,9 +59,12 @@
 
       bar = {
         launcher.autoDetectIcon = true;
+        clock = {
+          format = "%a %b %d  %H:%M:%S";
+        };
         workspaces = {
-	  showWsIcons = true;
-	  showApplicationIcons = true;
+          showWsIcons = true;
+          showApplicationIcons = true;
           numbered_active_indicator = "highlight";
         };
       };
@@ -69,9 +76,9 @@
             hideSeconds = true;
           };
           weather = {
-	    location = "Seoul";
-	    unit = "metric";
-	  };
+            location = "Seoul";
+            unit = "metric";
+          };
         };
 
         dashboard = {
