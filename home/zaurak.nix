@@ -18,5 +18,6 @@
   '';
 
   awscli.enable = true;
+  direnv.enable = true;
   spotify-player.enable = true;
 }
