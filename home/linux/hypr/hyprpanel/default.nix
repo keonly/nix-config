@@ -63,8 +63,7 @@
           format = "%a %b %d  %H:%M:%S";
         };
         workspaces = {
-          showWsIcons = true;
-          showApplicationIcons = true;
+          show_numbered = true;
           numbered_active_indicator = "highlight";
         };
       };
@@ -95,6 +94,10 @@
           buttons = {
             padding_x = "0.5rem";
             y_margins = "0.0rem";
+            workspaces = {
+              numbered_inactive_padding = "0.4em";
+              numbered_active_highlight_padding = "0.4em";
+            };
           };
 
           outer_spacing = "0.0rem";
@@ -103,7 +106,7 @@
 
         font = {
           name = "Iosevka Nerd Font Mono";
-          size = "15px";
+          size = "16px";
         };
       };
     };
