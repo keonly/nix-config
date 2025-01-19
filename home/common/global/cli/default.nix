@@ -24,6 +24,7 @@
 
     # utils
     ripgrep
+    fd
     jq
     yq-go
     fzf
