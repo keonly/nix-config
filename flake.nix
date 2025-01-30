@@ -19,6 +19,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Catppuccin
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # HyprPanel
     hyprpanel = {
       url = "github:Jas-SinghFSU/hyprpanel";
