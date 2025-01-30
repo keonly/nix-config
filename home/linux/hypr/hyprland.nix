@@ -104,5 +104,13 @@
             9)
         );
     };
+
+    extraConfig = ''
+      #########################
+      # ENVIRONMENT VARIABLES #
+      #########################
+
+      env = XCURSOR_SIZE,20
+    '';
   };
 }
