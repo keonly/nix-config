@@ -65,6 +65,7 @@
         workspaces = {
           show_numbered = true;
           numbered_active_indicator = "highlight";
+          spacing = 0;
         };
       };
 
