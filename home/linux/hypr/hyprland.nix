@@ -103,14 +103,40 @@
             )
             9)
         );
+
+      input = {
+        kb_layout = "us";
+        kb_options = "grp:caps_toggle,korean:ralt_hangul,korean:rctrl_hanja";
+
+        follow_mouse = 1;
+
+        touchpad = {
+          disable_while_typing = false;
+          natural_scroll = false;
+          scroll_factor = 0.3;
+        };
+
+        sensitivity = 0; # -1.0 to 1.0
+      };
     };
 
     extraConfig = ''
+      ##############
+      # AUTOSTARTS #
+      ##############
+
+      exec-once = kime
+
       #########################
       # ENVIRONMENT VARIABLES #
       #########################
 
       env = XCURSOR_SIZE,20
+
+      # Korean Input
+      env = GTK_IM_MODULE,kime
+      env = QT_IM_MODULE,kime
+      env = XMODIFIERS,@im=kime
     '';
   };
 }
