@@ -9,6 +9,10 @@
       package = lib.mkForce (pkgs.kime.overrideAttrs {RUSTFLAGS = "-Clink-args=-L./target/release";});
       enable = true;
       type = "kime";
+
+      kime = {
+        iconColor = "White";
+      };
     };
   };
 }
