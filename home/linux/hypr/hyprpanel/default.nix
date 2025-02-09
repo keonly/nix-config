@@ -44,7 +44,7 @@
         "0" = {
           left = ["dashboard" "workspaces"];
           middle = ["media"];
-          right = ["volume" "systray" "clock" "notifications"];
+          right = ["systray" "volume" "clock" "notifications"];
         };
       };
     };
@@ -65,7 +65,7 @@
         workspaces = {
           show_numbered = true;
           numbered_active_indicator = "highlight";
-          spacing = 0;
+          spacing = 0.0;
         };
       };
 

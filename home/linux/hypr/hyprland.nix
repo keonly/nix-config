@@ -15,8 +15,8 @@
       ###############
 
       general = {
-        gaps_in = 8;
-        gaps_out = 16;
+        gaps_in = 6;
+        gaps_out = 12;
         border_size = 2;
         "col.active_border" = "rgba(f4f4f4ff)";
         "col.inactive_border" = "rgba(00000000)";
