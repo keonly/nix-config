@@ -102,7 +102,7 @@
           };
 
           outer_spacing = "0.0rem";
-          margin_sides = "8px";
+          margin_sides = "12px";
         };
 
         font = {
