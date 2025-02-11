@@ -61,8 +61,6 @@
     border_style = {
       fg = "#8d8d8d";
     };
-    show_hidden = true;
-    sort_dir_first = true;
   };
   mode = {
     normal_main = {
