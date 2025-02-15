@@ -62,13 +62,13 @@ in {
 
       group = {
         "col.border_active" = "rgba(f4f4f4ff)";
-	"col.border_inactive" = "rgba(00000000)";
+        "col.border_inactive" = "rgba(00000000)";
         groupbar = {
-	  height = 8;
-	  render_titles = false;
-	  "col.active" = "rgba(f4f4f4ff)";
-	  "col.inactive" = "rgba(161616ff)";
-	};
+          height = 8;
+          render_titles = false;
+          "col.active" = "rgba(f4f4f4ff)";
+          "col.inactive" = "rgba(161616ff)";
+        };
       };
 
       misc = {
