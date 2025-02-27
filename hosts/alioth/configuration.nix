@@ -93,6 +93,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
+  # Enable polkit
+  security.polkit.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.keon = {
     isNormalUser = true;
@@ -142,6 +145,9 @@
     enable = true;
     withUWSM = true;
     xwayland.enable = true;
+  };
+  programs.sway = {
+    enable = true;
   };
 
   hardware.graphics = {
