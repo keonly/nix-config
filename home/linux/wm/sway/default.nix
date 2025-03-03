@@ -13,11 +13,17 @@ in {
   config = lib.mkIf config.sway.enable {
     wayland.windowManager.sway = {
       enable = true;
+      systemd.enable = true;
       extraOptions = ["--unsupported-gpu"];
 
       config = rec {
         modifier = mod;
         terminal = "kitty";
+        startup = [
+          {
+            command = "swaymgs workspace 1";
+          }
+        ];
 
         fonts = {
           names = ["Iosevka Nerd Font Mono"];
@@ -137,7 +143,6 @@ in {
         workspaceAutoBackAndForth = true;
       };
 
-      systemd.enable = true;
       wrapperFeatures = {gtk = true;};
       extraSessionCommands = ''
       '';
