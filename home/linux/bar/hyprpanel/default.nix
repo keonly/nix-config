@@ -1,15 +1,17 @@
 {
-  inputs,
+  pkgs,
+  config,
   lib,
+  inputs,
   ...
 }: {
+  imports = [inputs.hyprpanel.homeManagerModules.hyprpanel];
+
   options = {
     hyprpanel.enable = lib.mkEnableOption "Whether to enable hyprpanel";
   };
 
   config = lib.mkIf config.hyprpanel.enable {
-    imports = [inputs.hyprpanel.homeManagerModules.hyprpanel];
-
     programs.hyprpanel = {
       # Enable the module.
       # Default: false

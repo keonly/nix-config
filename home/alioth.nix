@@ -8,6 +8,7 @@
 }: {
   imports = [
     ./linux
+    ./linux/bar
     ./linux/gtk
     ./linux/wm
     ./common/optional
@@ -18,5 +19,7 @@
     font.size = lib.mkForce 14;
   };
 
+  waybar.enable = true;
+  sway.enable = true;
   spotify-player.enable = true;
 }
