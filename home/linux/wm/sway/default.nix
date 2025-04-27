@@ -100,7 +100,8 @@ in {
 
           {
             "${mod}+Return" = "exec --no-startup-id ${pkgs.kitty}/bin/kitty";
-            "${mod}+space" = "exec --no-startup-id wofi --show drun,run";
+            "${mod}+space" = "exec --no-startup-id rofi -show drun -theme ${config.xdg.configHome}/rofi/style/launcher.rasi";
+            "${mod}+Escape" = "exec --no-startup-id ${config.xdg.configHome}/rofi/script/powermenu.sh";
 
             "${mod}+q" = "kill";
 

@@ -10,6 +10,7 @@
     ./linux
     ./linux/bar
     ./linux/gtk
+    ./linux/menu
     ./linux/wm
     ./common/optional
   ];
@@ -22,4 +23,5 @@
   waybar.enable = true;
   sway.enable = true;
   spotify-player.enable = true;
+  rofi.enable = true;
 }
