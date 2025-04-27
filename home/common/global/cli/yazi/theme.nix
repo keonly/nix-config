@@ -92,8 +92,14 @@
     };
   };
   status = {
-    separator_open = "";
-    separator_close = "";
+    sep_left = {
+      open = "";
+      close = "";
+    };
+    sep_right = {
+      open = "";
+      close = "";
+    };
     separator_style = {
       fg = "#393939";
       bg = "#393939";

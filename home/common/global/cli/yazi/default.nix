@@ -1,9 +1,9 @@
-{pkgs, ...}: let
+{pkgs, lib, ...}: let
   plugins-repo = pkgs.fetchFromGitHub {
     owner = "yazi-rs";
     repo = "plugins";
-    rev = "8945e543ebbaa25de155b7101a917eba007252f2";
-    sha256 = "sha256-ko/vvItKtQSz5rbP3TMb4R1bywW2q8hj7E/A++vhVqQ=";
+    rev = "4b027c79371af963d4ae3a8b69e42177aa3fa6ee";
+    sha256 = "sha256-auGNSn6tX72go7kYaH16hxRng+iZWw99dKTTUN91Cow=";
   };
   starship-path = ./starship.toml;
 in {
@@ -56,8 +56,8 @@ in {
       starship = pkgs.fetchFromGitHub {
         owner = "Rolv-Apneseth";
         repo = "starship.yazi";
-        rev = "d1cd0a38aa6a2c2e86e62a466f43e415f781031e";
-        sha256 = "sha256-XiEsykudwYmwSNDO41b5layP1DqVa89e6Emv9Qf0mz0=";
+        rev = "6fde3b2d9dc9a12c14588eb85cf4964e619842e6";
+        sha256 = "sha256-+CSdghcIl50z0MXmFwbJ0koIkWIksm3XxYvTAwoRlDY=";
       };
     };
 
