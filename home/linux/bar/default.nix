@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./hyprpanel
+    # ./hyprpanel
     ./waybar
   ];
 }
