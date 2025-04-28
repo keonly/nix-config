@@ -4,5 +4,6 @@
     ./starship.nix
     ./tmux
     ./wezterm
+    ./zellij
   ];
 }
