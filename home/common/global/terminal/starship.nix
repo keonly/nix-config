@@ -127,7 +127,7 @@
         style = "fg:mantle bg:red";
         format = "[ $path ]($style)";
         truncation_length = 3;
-        truncation_symbol = "…/";
+        truncation_symbol = "… /";
         substitutions = {
           "Documents" = "󰈙 ";
           "Downloads" = " ";

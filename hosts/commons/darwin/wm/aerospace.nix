@@ -48,7 +48,7 @@
         alt-t = "layout tiles floating";
         alt-g = "layout tiles v_accordion";
 
-        alt-enter = "exec-and-forget open -n -a kitty";
+        alt-enter = "exec-and-forget open -n -a WezTerm";
       };
     };
   };

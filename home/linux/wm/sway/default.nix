@@ -99,7 +99,7 @@ in {
             })
 
           {
-            "${mod}+Return" = "exec --no-startup-id ${pkgs.kitty}/bin/kitty";
+            "${mod}+Return" = "exec --no-startup-id ${pkgs.wezterm}/bin/wezterm";
             "${mod}+space" = "exec --no-startup-id rofi -show drun -theme ${config.xdg.configHome}/rofi/style/launcher.rasi";
             "${mod}+Escape" = "exec --no-startup-id ${config.xdg.configHome}/rofi/script/powermenu.sh";
 

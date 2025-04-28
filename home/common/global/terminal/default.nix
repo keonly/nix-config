@@ -3,5 +3,6 @@
     ./kitty
     ./starship.nix
     ./tmux
+    ./wezterm
   ];
 }
