@@ -1,14 +1,12 @@
-{...}: {
-  home = {
-    homeDirectory = "/Users/keon";
-  };
-
-  imports = [
-    ../common/global
-  ];
-
-  programs.kitty.darwinLaunchOptions = [
-    "--single-instance"
-    "--directory ~"
-  ];
+{
+  lib,
+  vars,
+  ...
+}: let
+  baseImports = lib.path.collectImports ../base;
+  darwinImports = lib.path.collectImports ./.;
+in {
+  home.homeDirectory = "/Users/${vars.username}";
+  imports = baseImports ++ darwinImports;
+  xdg.enable = true;
 }

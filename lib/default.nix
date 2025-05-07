@@ -1,51 +1,11 @@
-{
-  self,
-  inputs,
-}: let
-  inherit (inputs) nixpkgs home-manager nix-darwin;
-  outputs = inputs.self.outputs;
-in {
-  mkNixosConfig = {
-    hostname,
-    extraModules ? [],
-  }:
-    nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs outputs;};
-      modules =
-        [
-          ../hosts/${hostname}
-        ]
-        ++ extraModules;
-    };
+# This file is a lib‑extension function: `final: prev: { …. }`
+# – `prev` = the expected upstream nixpkgs lib
+# – `final` = the final lib (prev + everything added here)
+final: prev: {
+  attrsets = prev.attrsets // (import ./attrsets.nix {lib = final;});
+  homeManagerBlock = import ./home-manager-block.nix;
 
-  mkDarwinConfig = {
-    username,
-    hostname,
-    system,
-    extraModules ? [],
-  }:
-    nix-darwin.lib.darwinSystem {
-      specialArgs = {inherit inputs outputs system username;};
-      modules =
-        [
-          ../hosts/${hostname}
-        ]
-        ++ extraModules;
-    };
-
-  mkHomeConfig = {
-    username,
-    hostname,
-    system,
-    extraModules ? [],
-  }:
-    home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      extraSpecialArgs = {inherit inputs outputs system username;};
-      modules =
-        [
-          ../home/${hostname}.nix
-        ]
-        ++ extraModules;
-    };
+  # pass the merged lib in a wrapper
+  darwinSystem = args: import ./darwin-system.nix (args // {lib = final;});
+  nixosSystem = args: import ./nixos-system.nix (args // {lib = final;});
 }
