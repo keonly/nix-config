@@ -1,5 +1,5 @@
 {lib, ...}: {
-  imports = lib.path.collectImports ./.;
+  imports = lib.filesystem.listFilesNonRecursive ./.;
 
   home = {
     inherit (vars) username;

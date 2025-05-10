@@ -3,8 +3,8 @@
   vars,
   ...
 }: let
-  baseImports = lib.path.collectImports ../base;
-  darwinImports = lib.path.collectImports ./.;
+  baseImports = lib.filesystem.listFilesNonRecursive ../base;
+  darwinImports = lib.filesystem.listFilesNonRecursive ./.;
 in {
   home.homeDirectory = "/Users/${vars.username}";
   imports = baseImports ++ darwinImports;

@@ -1,6 +1,6 @@
 {lib, ...}: let
-  baseImports = lib.path.collectImports ../base.nix;
-  darwinImports = lib.path.collectImports ./.;
+  baseImports = lib.filesystem.listFilesNonRecursive ../base.nix;
+  darwinImports = lib.filesystem.listFilesNonRecursive ./.;
 in {
   imports = baseImports ++ darwinImports;
 }
