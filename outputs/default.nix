@@ -1,10 +1,13 @@
 {
   self,
   nixpkgs,
+  haumea,
+  nix-helpers,
   ...
 } @ inputs: let
-  lib = nixpkgs.lib.extend (import ../lib);
-  vars = import ../var {inherit lib;};
+  lib = nixpkgs.lib;
+  extraLib = import ../lib {inherit lib haumea;};
+  vars = import ../vars {inherit lib;};
 
   mkSpecialArgs = {
     inputs,
@@ -26,14 +29,11 @@
     };
 
   args = {
-    inherit inputs;
-    inherit lib;
-    inherit vars;
-    inherit mkSpecialArgs;
+    inherit inputs lib extraLib vars mkSpecialArgs nix-helpers;
   };
 
   nixosSystems = {
-    x86_64-linux = import ./x86_64-linux (args // {system = "x86_64-linux";});
+    # x86_64-linux = import ./x86_64-linux (args // {system = "x86_64-linux";});
   };
   darwinSystems = {
     aarch64-darwin = import ./aarch64-darwin (args // {system = "aarch64-darwin";});
@@ -45,7 +45,7 @@
   allSystemConfigurations =
     allSystems
     |> lib.attrsets.attrValues
-    |> lib.attrsets.mergeAttrsListRecursive;
+    |> nix-helpers.lib.attrsets.mergeAttrsListRecursive;
 
   forEachSystem = f: (
     lib.genAttrs allSystemNames f

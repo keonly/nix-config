@@ -1,23 +1,32 @@
 {
   inputs,
   lib,
+  extraLib,
   vars,
   system,
-  mkSpecialArgs,
+  specialArgs,
   ...
 } @ args: let
   name = "zaurak";
+
   modules = {
-    darwinModules = [
-      "../modules/darwin"
-      "../hosts/laptop-${name}"
-    ];
-    homeModules = [
-      "../home/darwin"
-      "../hosts/laptop-${name}/home.nix"
-    ];
+    darwinModules =
+      [
+        "modules/darwin"
+        "hosts/laptop-${name}"
+      ]
+      |> lib.lists.map extraLib.path.relativeToRoot;
+    homeModules =
+      [
+        "home/darwin"
+        # "hosts/laptop-${name}/home.nix"
+      ]
+      |> lib.lists.map extraLib.path.relativeToRoot;
   };
-  systemArgs = modules // args;
+  systemArgs =
+    modules
+    // args
+    |> (args: builtins.removeAttrs args ["helpers"]);
 in {
-  darwinModules.${name} = lib.darwinSystem systemArgs;
+  darwinConfigurations.${name} = extraLib.darwinSystem systemArgs;
 }

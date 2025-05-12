@@ -4,29 +4,16 @@
   mkSpecialArgs,
   system,
   vars,
+  nix-helpers,
   ...
 } @ args: let
-  inherit (inputs) haumea;
-
   specialArgs = mkSpecialArgs {
     inherit inputs system vars;
   };
-
-  data = haumea.lib.load {
-    src = ./src;
-    inputs =
-      args
-      // {
-        inherit specialArgs;
-      };
-  };
-
-  outputs =
-    data
-    |> lib.attrsets.attrValues
-    |> lib.attrsets.mergeAttrsListRecursive;
 in
-  outputs
-  // {
-    data = data;
+  {
+    src = ./src;
+    inputs = args // {inherit specialArgs;};
   }
+  |> nix-helpers.lib.path.loadImportsList
+  |> nix-helpers.lib.attrsets.mergeAttrsListRecursive

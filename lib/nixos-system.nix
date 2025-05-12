@@ -4,16 +4,17 @@
   nixosModules,
   homeModules ? [],
   vars,
+  helpers,
   system,
   specialArgs,
   ...
 }: let
   inherit (inputs) nixpkgs home-manager;
-  hmBlock = lib.homeManagerBlock {
+
+  mkHmBlock = import ./home-manager.nix;
+  hmBlock = mkHmBlock {
+    inherit homeModules specialArgs vars;
     homeManagerBaseModule = home-manager.nixosModules.home-manager;
-    homeModules = homeModules;
-    specialArgs = specialArgs;
-    vars = vars;
   };
 in
   nixpkgs.lib.nixosSystem {

@@ -9,11 +9,11 @@
   ...
 }: let
   inherit (inputs) nixpkgs-darwin home-manager nix-darwin;
-  hmBlock = lib.homeManagerBlock {
+
+  mkHmBlock = import ./home-manager.nix;
+  hmBlock = mkHmBlock {
+    inherit homeModules specialArgs vars;
     homeManagerBaseModule = home-manager.darwinModules.home-manager;
-    homeModules = homeModules;
-    specialArgs = specialArgs;
-    vars = vars;
   };
 in
   nix-darwin.lib.darwinSystem {

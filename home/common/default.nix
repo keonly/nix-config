@@ -1,5 +1,9 @@
-{lib, ...}: {
-  imports = lib.filesystem.listFilesNonRecursive ./.;
+{
+  vars,
+  nix-helpers,
+  ...
+}: {
+  imports = nix-helpers.lib.path.collectImportsList ./.;
 
   home = {
     inherit (vars) username;

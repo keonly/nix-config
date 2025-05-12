@@ -30,7 +30,12 @@
     };
 
     haumea = {
-      url = "github:nix-community/haumea/v0.2.2";
+      url = "github:nix-community/haumea";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-helpers = {
+      url = "github:keonly/nix-helpers";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

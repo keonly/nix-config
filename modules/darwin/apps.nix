@@ -39,7 +39,7 @@
       "gnu-tar"
     ];
 
-    cask = [
+    casks = [
       "ghostty"
       {
         name = "librewolf";

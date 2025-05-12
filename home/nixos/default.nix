@@ -1,12 +1,12 @@
 {
-  lib,
   vars,
+  nix-helpers,
   ...
 }: let
-  baseImports = lib.filesystem.listFilesNonRecursive ../base;
-  nixosImports = lib.filesystem.listFilesNonRecursive ./.;
+  commonImports = [../common];
+  nixosImports = nix-helpers.lib.path.collectImportsList ./.;
 in {
   home.homeDirectory = "/home/${vars.username}";
-  imports = baseImports ++ nixosImports;
+  imports = commonImports ++ nixosImports;
   xdg.enable = true;
 }
