@@ -11,7 +11,10 @@
     programs.aerospace = {
       enable = true;
 
-      userSettings = builtins.fromTOML ./aerospace.toml;
+      userSettings =
+        ./aerospace.toml
+        |> builtins.readFile
+        |> builtins.fromTOML;
     };
   };
 }
