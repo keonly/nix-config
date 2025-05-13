@@ -4,19 +4,24 @@
   pkgs,
   ...
 }: {
-  environment.systemPackages = with pkgs; [
-    neovim
-    git
-    nushell
-    gnugrep
-    gnutar
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      neovim
+      git
+      nushell
+      gnugrep
+      gnutar
+    ];
 
-  programs.zsh.enable = true;
-  environment.shells = [
-    pkgs.zsh
-    pkgs.nushell
-  ];
+    shells = with pkgs; [
+      zsh
+    ];
+  };
+
+  programs = {
+    # https://github.com/nix-darwin/nix-darwin/issues/1380#issuecomment-2718171813
+    zsh.enable = true;
+  };
 
   homebrew = {
     enable = true;
@@ -28,8 +33,6 @@
     };
 
     taps = [
-      "homebrew/services"
-      "FelixKratz/formulae" # JankyBorders
     ];
 
     brews = [
