@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: let
   plugins-repo = pkgs.fetchFromGitHub {
@@ -11,64 +12,70 @@
   };
   starship-path = ./starship.toml;
 in {
-  programs.yazi = {
-    enable = true;
+  options = {
+    yazi.enable = lib.mkEnableOption "Whether to enable yazi";
+  };
 
-    # Shell integrations
-    enableBashIntegration = true;
-    enableFishIntegration = true;
-    enableNushellIntegration = true;
-    enableZshIntegration = true;
+  config = lib.mkIf config.yazi.enable {
+    programs.yazi = {
+      enable = true;
 
-    settings = {
-      manager = {
-        sort_dir_first = true;
-        show_hidden = true;
+      # Shell integrations
+      enableBashIntegration = true;
+      enableFishIntegration = true;
+      enableNushellIntegration = true;
+      enableZshIntegration = true;
+
+      settings = {
+        manager = {
+          sort_dir_first = true;
+          show_hidden = true;
+        };
       };
-    };
 
-    theme = import ./theme.nix;
+      theme = import ./theme.nix;
 
-    keymap = {
-      manager = {
-        prepend_keymap = [
-          {
-            on = ["c" "m"];
-            run = "plugin chmod";
-            desc = "Chmod on selected files";
-          }
-          {
-            on = ["<C-d>"];
-            run = "plugin diff";
-            desc = "Diff the selected with the hovered file";
-          }
-          {
-            on = ["M"];
-            run = "plugin mount";
-            desc = "Open mount manager";
-          }
-        ];
+      keymap = {
+        manager = {
+          prepend_keymap = [
+            {
+              on = ["c" "m"];
+              run = "plugin chmod";
+              desc = "Chmod on selected files";
+            }
+            {
+              on = ["<C-d>"];
+              run = "plugin diff";
+              desc = "Diff the selected with the hovered file";
+            }
+            {
+              on = ["M"];
+              run = "plugin mount";
+              desc = "Open mount manager";
+            }
+          ];
+        };
       };
-    };
 
-    plugins = {
-      chmod = "${plugins-repo}/chmod.yazi";
-      diff = "${plugins-repo}/diff.yazi";
-      full-border = "${plugins-repo}/full-border.yazi";
-      git = "${plugins-repo}/git.yazi";
-      mount = "${plugins-repo}/mount.yazi";
-      starship = pkgs.fetchFromGitHub {
-        owner = "Rolv-Apneseth";
-        repo = "starship.yazi";
-        rev = "6fde3b2d9dc9a12c14588eb85cf4964e619842e6";
-        sha256 = "sha256-+CSdghcIl50z0MXmFwbJ0koIkWIksm3XxYvTAwoRlDY=";
+      plugins = {
+        chmod = "${plugins-repo}/chmod.yazi";
+        diff = "${plugins-repo}/diff.yazi";
+        full-border = "${plugins-repo}/full-border.yazi";
+        git = "${plugins-repo}/git.yazi";
+        mount = "${plugins-repo}/mount.yazi";
+        starship = pkgs.fetchFromGitHub {
+          owner = "Rolv-Apneseth";
+          repo = "starship.yazi";
+          rev = "6fde3b2d9dc9a12c14588eb85cf4964e619842e6";
+          sha256 = "sha256-+CSdghcIl50z0MXmFwbJ0koIkWIksm3XxYvTAwoRlDY=";
+        };
       };
-    };
 
-    initLua = ''
-      require("full-border"):setup()
-      require("git"):setup()
-      require("starship"):setup({ config_file = "${starship-path}" })
-    '';
+      initLua = ''
+        require("full-border"):setup()
+        require("git"):setup()
+        require("starship"):setup({ config_file = "${starship-path}" })
+      '';
+    };
   };
 }
