@@ -19,7 +19,7 @@
     homeModules =
       [
         "home/darwin"
-        # "hosts/laptop-${name}/home.nix"
+        "hosts/laptop-${name}/home.nix"
       ]
       |> lib.lists.map extraLib.path.relativeToRoot;
   };
