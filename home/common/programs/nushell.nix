@@ -11,6 +11,13 @@
     programs.nushell = {
       enable = true;
 
+      shellAliases = {
+        nv = "nvim";
+        lg = "lazygit";
+        ll = "ls -la";
+        k = "kubecolor";
+      };
+
       settings = {
         show_banner = false;
         ls = {
