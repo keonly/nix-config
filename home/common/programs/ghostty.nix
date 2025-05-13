@@ -23,13 +23,6 @@
         font-family = "Iosevka Nerd Font Mono";
         font-size = 16;
         theme = "carppuccin-mocha";
-
-        # https://ghostty.org/docs/config/reference#command
-        #  To resolve issues:
-        #    1. https://github.com/ryan4yin/nix-config/issues/26
-        #    2. https://github.com/ryan4yin/nix-config/issues/8
-        #  Spawn a nushell in login mode via `bash`
-        # command = "${pkgs.bash}/bin/bash --login -c 'nu --login --interactive'";
       };
 
       themes = {
