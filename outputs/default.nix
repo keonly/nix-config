@@ -1,6 +1,6 @@
 {
-  self,
   nixpkgs,
+  flake-parts,
   haumea,
   nix-helpers,
   ...
@@ -29,29 +29,30 @@
     };
 
   args = {
-    inherit inputs lib extraLib vars mkSpecialArgs nix-helpers;
+    inherit inputs lib extraLib vars mkSpecialArgs haumea nix-helpers;
   };
 
-  nixosSystems = {
-    # x86_64-linux = import ./x86_64-linux (args // {system = "x86_64-linux";});
-  };
-  darwinSystems = {
-    aarch64-darwin = import ./aarch64-darwin (args // {system = "aarch64-darwin";});
-    # x86_64-darwin = import ./x86_64-darwin (args // {system = "x86_64-darwin";});
-  };
+  systems = [
+    # "x86_64-linux"
+    "aarch64-darwin"
+  ];
 
-  allSystems = nixosSystems // darwinSystems;
-  allSystemNames = lib.attrsets.attrNames allSystems;
-  allSystemConfigurations =
-    allSystems
-    |> lib.attrsets.attrValues
-    |> nix-helpers.lib.attrsets.mergeAttrsListRecursive;
-
-  forEachSystem = f: (
-    lib.genAttrs allSystemNames f
+  importSystem = system: import ./${system} (args // {system = system;});
+  mkConfigurations = (
+    systems:
+      systems
+      |> lib.lists.map importSystem
+      |> nix-helpers.lib.attrsets.mergeAttrsListRecursive
   );
-in {
-  inherit (allSystemConfigurations) nixosConfigurations darwinConfigurations;
+  allConfigurations = mkConfigurations systems;
+in
+  flake-parts.lib.mkFlake {inherit inputs;} {
+    inherit systems;
+    perSystem = {pkgs, ...}: {
+      formatter = pkgs.alejandra;
+    };
 
-  formatter = forEachSystem (system: nixpkgs.legacyPackages.${system}.alejandra);
-}
+    flake = {
+      inherit (allConfigurations) nixosConfigurations darwinConfigurations;
+    };
+  }

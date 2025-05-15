@@ -1,5 +1,4 @@
 {
-  lib,
   inputs,
   mkSpecialArgs,
   system,
@@ -16,6 +15,6 @@ in
     src = ./src;
     inputs = args // {inherit specialArgs;};
   }
-  |> haumea.lib.load {inherit (args) src inputs;}
+  |> haumea.lib.load
   |> builtins.attrValues
   |> nix-helpers.lib.attrsets.mergeAttrsListRecursive

@@ -23,10 +23,6 @@
       ]
       |> lib.lists.map extraLib.path.relativeToRoot;
   };
-  systemArgs =
-    modules
-    // args
-    |> (args: builtins.removeAttrs args ["helpers"]);
 in {
-  darwinConfigurations.${name} = extraLib.darwinSystem systemArgs;
+  darwinConfigurations.${name} = extraLib.darwinSystem (modules // args);
 }
