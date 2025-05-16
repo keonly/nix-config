@@ -1,125 +1,51 @@
 {
-  description = "Your new nix config";
+  description = "nix configuration by keonly";
+
+  outputs = inputs: import ./outputs inputs;
 
   inputs = {
-    # Nixpkgs
+    # Official nixpkgs Sources
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
+      url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    };
+    nixpkgs-unstable = {
+      url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    };
+    nixpkgs-stable = {
+      url = "github:nixos/nixpkgs?ref=nixos-24.11";
     };
 
-    # Nix-Darwin
+    # Darwin
+    nixpkgs-darwin = {
+      url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    };
     nix-darwin = {
-      url = "github:LnL7/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
-    # Home manager
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Hyprland
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+    };
+
+    git-hooks-nix = {
+      url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Catppuccin
-    catppuccin = {
-      url = "github:catppuccin/nix";
+    haumea = {
+      url = "github:nix-community/haumea";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # HyprPanel
-    hyprpanel = {
-      url = "github:Jas-SinghFSU/hyprpanel";
+    nix-helpers = {
+      url = "github:keonly/nix-helpers";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Astal
-    astal = {
-      url = "github:aylur/astal";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # ags
-    ags = {
-      url = "github:aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    lib = nixpkgs.lib.extend (self: super: {
-      custom = import ./lib {
-        inherit self inputs;
-      };
-    });
-    systems = [
-      "x86_64-linux"
-      "aarch64-darwin"
-    ];
-
-    forAllSystems = nixpkgs.lib.genAttrs systems;
-  in {
-    # Your custom packages
-    # Accessible through 'nix build', 'nix shell', etc
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-
-    # Formatter for your nix files, available through 'nix fmt'
-    # Other options beside 'alejandra' include 'nixpkgs-fmt'
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-
-    # Your custom packages and modifications, exported as overlays
-    overlays = import ./overlays {inherit inputs;};
-
-    # Reusable nixos modules you might want to export
-    # These are usually stuff you would upstream into nixpkgs
-    nixosModules = import ./modules/nixos;
-
-    # Reusable home-manager modules you might want to export
-    # These are usually stuff you would upstream into home-manager
-    homeManagerModules = import ./modules/home-manager;
-
-    # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#hostname'
-    nixosConfigurations = {
-      alioth = lib.custom.mkNixosConfig {
-        hostname = "alioth";
-      };
-    };
-
-    # nix-darwin configuration entrypoing
-    # Available through 'darwin-rebuild switch --flake .#hostname'
-    darwinConfigurations = {
-      "zaurak" = lib.custom.mkDarwinConfig {
-        username = "keon";
-        hostname = "zaurak";
-        system = "aarch64-darwin";
-      };
-    };
-
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager switch --flake .#username@hostname'
-    homeConfigurations = {
-      "keon@alioth" = lib.custom.mkHomeConfig {
-        username = "keon";
-        hostname = "alioth";
-        system = "x86_64-linux";
-      };
-
-      "keon@zaurak" = lib.custom.mkHomeConfig {
-        username = "keon";
-        hostname = "zaurak";
-        system = "aarch64-darwin";
-      };
     };
   };
 }

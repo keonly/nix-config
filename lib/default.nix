@@ -1,51 +1,11 @@
 {
-  self,
-  inputs,
-}: let
-  inherit (inputs) nixpkgs home-manager nix-darwin;
-  outputs = inputs.self.outputs;
-in {
-  mkNixosConfig = {
-    hostname,
-    extraModules ? [],
-  }:
-    nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs outputs;};
-      modules =
-        [
-          ../hosts/${hostname}
-        ]
-        ++ extraModules;
-    };
+  lib,
+  haumea,
+  ...
+}: {
+  attrsets = import ./attrsets.nix {inherit lib;};
+  path = import ./path.nix {inherit lib haumea;};
 
-  mkDarwinConfig = {
-    username,
-    hostname,
-    system,
-    extraModules ? [],
-  }:
-    nix-darwin.lib.darwinSystem {
-      specialArgs = {inherit inputs outputs system username;};
-      modules =
-        [
-          ../hosts/${hostname}
-        ]
-        ++ extraModules;
-    };
-
-  mkHomeConfig = {
-    username,
-    hostname,
-    system,
-    extraModules ? [],
-  }:
-    home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      extraSpecialArgs = {inherit inputs outputs system username;};
-      modules =
-        [
-          ../home/${hostname}.nix
-        ]
-        ++ extraModules;
-    };
+  darwinSystem = args: import ./darwin-system.nix (args // {inherit lib;});
+  nixosSystem = args: import ./nixos-system.nix (args // {inherit lib;});
 }
