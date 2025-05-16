@@ -7,7 +7,7 @@
   specialArgs,
   ...
 } @ args: let
-  name = "zaurak";
+  name = "p16-23m3";
 
   modules = {
     darwinModules =
