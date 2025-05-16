@@ -1,6 +1,7 @@
 {
   nixpkgs,
   flake-parts,
+  git-hooks-nix,
   haumea,
   nix-helpers,
   ...
@@ -47,9 +48,30 @@
   allConfigurations = mkConfigurations systems;
 in
   flake-parts.lib.mkFlake {inherit inputs;} {
+    imports = [
+      git-hooks-nix.flakeModule
+    ];
+
     inherit systems;
     perSystem = {pkgs, ...}: {
       formatter = pkgs.alejandra;
+
+      pre-commit.settings.hooks = {
+        alejandra.enable = true;
+        # trufflehog.enable = true;
+        trufflehog-custom = {
+          enable = true;
+          description = "Temporary fix for https://github.com/cachix/git-hooks.nix/issues/584";
+          pass_filenames = false;
+          entry = let
+            script = pkgs.writeShellScript "precommit-trufflehog" ''
+              set -e
+              ${pkgs.trufflehog}/bin/trufflehog git "file://$(git rev-parse --show-top-level)" --since-commit HEAD --only-verified --fail
+            '';
+          in
+            builtins.toString script;
+        };
+      };
     };
 
     flake = {
