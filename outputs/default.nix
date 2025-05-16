@@ -53,11 +53,27 @@ in
     ];
 
     inherit systems;
-    perSystem = {pkgs, ...}: {
+    perSystem = {
+      config,
+      pkgs,
+      ...
+    }: {
       formatter = pkgs.alejandra;
 
       pre-commit.settings.hooks = {
+        # Nix
         alejandra.enable = true;
+
+        # TOML
+        check-toml.enable = true;
+        taplo.enable = true;
+
+        # YAML
+        check-yaml.enable = true;
+        yamlfmt.enable = true;
+        yamllint.enable = true;
+
+        # Secret detection
         # trufflehog.enable = true;
         trufflehog-custom = {
           enable = true;
@@ -71,6 +87,16 @@ in
           in
             builtins.toString script;
         };
+
+        # Spell check
+        typos.enable = true;
+      };
+
+      devShells.default = pkgs.mkShell {
+        shellHook = ''
+          ${config.pre-commit.installationScript}
+          echo 1>&2 "Welcome to the development shell!"
+        '';
       };
     };
 
