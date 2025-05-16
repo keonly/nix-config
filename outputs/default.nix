@@ -101,6 +101,7 @@ in
     };
 
     flake = {
-      inherit (allConfigurations) nixosConfigurations darwinConfigurations;
+      # inherit (allConfigurations) nixosConfigurations darwinConfigurations;
+      inherit (allConfigurations) darwinConfigurations;
     };
   }

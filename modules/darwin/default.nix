@@ -1,5 +1,5 @@
 {lib, ...}: let
-  baseImports = [../base.nix];
+  baseImports = [../base];
   darwinImports =
     ./.
     |> lib.filesystem.listFilesRecursive
