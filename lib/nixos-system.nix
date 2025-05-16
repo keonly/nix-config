@@ -4,7 +4,6 @@
   nixosModules,
   homeModules ? [],
   vars,
-  helpers,
   system,
   specialArgs,
   ...

@@ -33,10 +33,10 @@
     inherit inputs lib extraLib vars mkSpecialArgs haumea nix-helpers;
   };
 
-  systems = [
-    # "x86_64-linux"
-    "aarch64-darwin"
-  ];
+  systems =
+    ./.
+    |> nix-helpers.lib.path.collectImportsList
+    |> lib.lists.map (builtins.baseNameOf);
 
   importSystem = system: import ./${system} (args // {system = system;});
   mkConfigurations = (
@@ -101,7 +101,6 @@ in
     };
 
     flake = {
-      # inherit (allConfigurations) nixosConfigurations darwinConfigurations;
-      inherit (allConfigurations) darwinConfigurations;
+      inherit (allConfigurations) nixosConfigurations darwinConfigurations;
     };
   }
