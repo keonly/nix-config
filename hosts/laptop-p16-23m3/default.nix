@@ -16,6 +16,7 @@
   homebrew = {
     casks = [
       "1password"
+      "clocker"
     ];
   };
 }

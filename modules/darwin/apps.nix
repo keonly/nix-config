@@ -52,7 +52,7 @@
       "eloston-chromium" # Ungoogled Chromium
       "karabiner-elements"
       "raycast"
-      "clocker"
+      "colemak-dh"
     ];
   };
 }
