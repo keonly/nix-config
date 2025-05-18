@@ -16,6 +16,7 @@
         lg = "lazygit";
         ll = "ls -la";
         k = "kubecolor";
+        yz = "yazi";
       };
 
       settings = {
