@@ -3,6 +3,11 @@
 in {
   imports = [./hardware-configuration.nix];
 
+  boot.loader.grub = {
+    font = "${pkgs.iosevka}/share/fonts/truetype/Iosevka-Regular.ttf";
+    fontSize = 32;
+  };
+
   environment.systemPackages = with pkgs; [
     neovim
     git
