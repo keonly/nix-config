@@ -12,6 +12,7 @@
         useOSProber = true;
 
         backgroundColor = "#000000";
+        splashImage = null;
       };
 
       timeout = lib.mkDefault 10;
