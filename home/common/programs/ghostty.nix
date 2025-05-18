@@ -1,5 +1,5 @@
 {
-  pkgs ? import <nixpkgs> {},
+  pkgs,
   lib,
   config,
   ...
@@ -19,11 +19,23 @@
       enableBashIntegration = true;
       enableZshIntegration = true;
 
-      settings = {
-        font-family = "Iosevka Nerd Font Mono";
-        font-size = 16;
-        theme = "carppuccin-mocha";
-      };
+      settings = lib.mkMerge [
+        {
+          font-family = "Iosevka Nerd Font Mono";
+          font-size =
+            if pkgs.stdenv.isDarwin
+            then 16
+            else 14;
+          theme = "carppuccin-mocha";
+        }
+        (lib.mkIf pkgs.stdenv.isDarwin {
+          font-thicken = true;
+          font-thicken-strength = 0;
+        })
+        (lib.mkIf pkgs.stdenv.isLinux {
+          command = "${pkgs.bash}/bin/bash --login -c 'nu --login --interactive'";
+        })
+      ];
 
       themes = {
         carppuccin-mocha = {
