@@ -47,5 +47,15 @@
       url = "github:keonly/nix-helpers";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-doom-emacs-unstraightened = {
+      url = "github:marienz/nix-doom-emacs-unstraightened";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    doom-config = {
+      url = "github:keonly/doom-config";
+      flake = false;
+    };
   };
 }
