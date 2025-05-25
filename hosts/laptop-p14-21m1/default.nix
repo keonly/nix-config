@@ -15,8 +15,9 @@
 
   homebrew = {
     casks = [
-      "1password"
-      "clocker"
+      "proton-drive"
+      "proton-mail"
+      "proton-pass"
     ];
   };
 
