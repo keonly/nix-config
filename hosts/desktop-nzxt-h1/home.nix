@@ -18,6 +18,7 @@
   ripgrep.enable = true;
   starship.enable = true;
   thefuck.enable = true;
+  vesktop.enable = true;
   yazi.enable = true;
   zoxide.enable = true;
 
