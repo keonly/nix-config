@@ -17,6 +17,7 @@
   starship.enable = true;
   thefuck.enable = true;
   yazi.enable = true;
+  zellij.enable = true;
   zoxide.enable = true;
 
   aerospace.enable = true;
