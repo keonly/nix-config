@@ -47,5 +47,14 @@
       url = "github:keonly/nix-helpers";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nvf-config = {
+      url = "github:keonly/nvf-config";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+        nix-helpers.follows = "nix-helpers";
+      };
+    };
   };
 }
