@@ -12,6 +12,7 @@
   kubecolor.enable = true;
   lazygit.enable = true;
   librewolf.enable = true;
+  neovim.enable = true;
   nh.enable = true;
   nushell.enable = true;
   ripgrep.enable = true;
