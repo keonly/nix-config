@@ -19,6 +19,7 @@
   thefuck.enable = true;
   vesktop.enable = true;
   yazi.enable = true;
+  zellij.enable = true;
   zoxide.enable = true;
 
   rofi.enable = true;
