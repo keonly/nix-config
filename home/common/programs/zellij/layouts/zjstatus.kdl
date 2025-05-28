@@ -1,0 +1,80 @@
+layout {
+    pane size=2 borderless=true { 
+        plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+            // -- Carppuccin Mocha --
+            color_rosewater "#f5e0dc"
+            color_flamingo "#f2cdcd"
+            color_pink "#f5c2e7"
+            color_mauve "#cba6f7"
+            color_red "#f38ba8"
+            color_maroon "#eba0ac"
+            color_peach "#fab387"
+            color_yellow "#f9e2af"
+            color_green "#a6e3a1"
+            color_teal "#94e2d5"
+            color_sky "#89dceb"
+            color_sapphire "#74c7ec"
+            color_blue "#89b4fa"
+            color_lavender "#b4befe"
+            color_text "#f4f4f4"
+            color_subtext1 "#e0e0e0"
+            color_subtext0 "#c6c6c6"
+            color_overlay2 "#a8a8a8"
+            color_overlay1 "#8d8d8d"
+            color_overlay0 "#6f6f6f"
+            color_surface2 "#525252"
+            color_surface1 "#393939"
+            color_surface0 "#262626"
+            color_base "#161616"
+            color_mantle "#0b0b0b"
+            color_crust "#000000"
+
+            format_left  "{mode}#[fg=$blue,bg=$mantle,bold] {session}#[bg=$mantle] {tabs}"
+            format_right "{command_kubectx}#[fg=$surface2,bg=$mantle]::{command_kubens}{datetime}"
+            format_space "#[bg=$mantle]"
+
+            mode_normal          "#[bg=$blue,fg=$crust,bold] NORMAL "
+            mode_tmux            "#[bg=$red,fg=$crust,bold] TMUX "
+            mode_locked          "#[bg=$surface0,fg=$text,bold] LOCKED "
+            mode_pane            "#[bg=$green,fg=$crust,bold] PANE "
+            mode_tab             "#[bg=$green,fg=$crust,bold] TAB "
+            mode_scroll          "#[bg=$flamingo,fg=$crust,bold] SCROLL "
+            mode_enter_search    "#[bg=$flamingo,fg=$crust,bold] ENT-SEARCH "
+            mode_search          "#[bg=$flamingo,fg=$crust,bold] SEARCH "
+            mode_resize          "#[bg=$yellow,fg=$crust,bold] RESIZE "
+            mode_rename_tab      "#[bg=$yellow,fg=$crust,bold] RENAME-TAB "
+            mode_rename_pane     "#[bg=$yellow,fg=$crust,bold] RENAME-PANE "
+            mode_move            "#[bg=$yellow,fg=$crust,bold] MOVE "
+            mode_session         "#[bg=$mauve,fg=$crust,bold] SESSION "
+            mode_prompt         "#[bg=$mauve,fg=$crust,bold] PROMPT "
+            mode_default_to_mode "normal"
+
+            tab_normal               "#[fg=$subtext0,bg=$mantle] {index} {name} {fullscreen_indicator}{sync_indicator}{floating_indicator}"
+            tab_active               "#[fg=$text,bg=$mantle,bold,italic] {index} {name} {fullscreen_indicator}{sync_indicator}{floating_indicator}"
+            tab_fullscreen_indicator "□ "
+            tab_sync_indicator       "  "
+            tab_floating_indicator   "󰉈 "
+
+            command_kubectx_command  "kubectx -c"
+            command_kubectx_format   "#[fg=$overlay2,bg=$mantle,italic] {stdout}"
+            command_kubectx_interval "2"
+
+            command_kubens_command  "kubens -c"
+            command_kubens_format   "#[fg=$overlay2,bg=$mantle]{stdout} "
+            command_kubens_interval "2"
+
+            datetime          "#[fg=$overlay0,bg=$mantle] {format} "
+            datetime_format   "%A, %d %b %Y %H:%M"
+            datetime_timezone "Asia/Seoul"
+
+            border_enabled  "true"
+            border_char     "─"
+            border_format   "#[fg=$subtext1]{char}"
+            border_position "bottom"
+        }
+    }
+    pane
+    pane size=1 borderless=true { 
+        plugin location="zellij:status-bar" // Remove this when I get familiar with the keybinds
+    }
+}
