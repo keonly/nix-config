@@ -17,14 +17,11 @@
       ]
       |> lib.lists.map extraLib.path.relativeToRoot;
     homeModules =
-      ([
-          "home/nixos"
-          "hosts/desktop-${name}/home.nix"
-        ]
-        |> lib.lists.map extraLib.path.relativeToRoot)
-      ++ [
-        inputs.nix-doom-emacs-unstraightened.homeModule
-      ];
+      [
+        "home/nixos"
+        "hosts/desktop-${name}/home.nix"
+      ]
+      |> lib.lists.map extraLib.path.relativeToRoot;
   };
 in {
   nixosConfigurations.${name} = extraLib.nixosSystem (modules // args);

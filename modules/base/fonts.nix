@@ -17,7 +17,6 @@
         sarasa-gothic
         iosevka
         nerd-fonts.iosevka
-        nerd-fonts.symbols-only
       ];
     };
   };

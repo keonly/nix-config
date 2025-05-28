@@ -2,7 +2,6 @@
   bat.enable = true;
   btop.enable = true;
   direnv.enable = true;
-  emacs.enable = true;
   eza.enable = true;
   fd.enable = true;
   fish.enable = true;
