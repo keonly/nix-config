@@ -7,10 +7,10 @@
   fish.enable = true;
   fzf.enable = true;
   gh.enable = true;
+  gitui.enable = true;
   ghostty.enable = true;
   k9s.enable = true;
   kubecolor.enable = true;
-  lazygit.enable = true;
   librewolf.enable = true;
   neovim.enable = true;
   nh.enable = true;
