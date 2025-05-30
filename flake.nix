@@ -45,7 +45,6 @@
 
     nix-helpers = {
       url = "github:keonly/nix-helpers";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nvf-config = {
