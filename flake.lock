@@ -241,17 +241,14 @@
     "nix-helpers": {
       "inputs": {
         "flake-parts": "flake-parts_2",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
         "nixpkgs-lib": "nixpkgs-lib_2"
       },
       "locked": {
-        "lastModified": 1747359956,
-        "narHash": "sha256-mZjJNdCcENw5L7BtR5q8u1jXSXYNNR4k7VgSmLXmlgc=",
+        "lastModified": 1748595067,
+        "narHash": "sha256-uHJGuZ1isS3f8xuaz5LTiecleDui9O0WK5bsBKEzeX4=",
         "owner": "keonly",
         "repo": "nix-helpers",
-        "rev": "27f2e7a6edb565a75ffde7f673c0d2530a3e64db",
+        "rev": "b6b81b704d76b649a1381c8bb913e8f9228ade53",
         "type": "github"
       },
       "original": {
