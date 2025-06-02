@@ -406,11 +406,11 @@
         "nvf": "nvf"
       },
       "locked": {
-        "lastModified": 1748839506,
-        "narHash": "sha256-7bCy4/wJ0ejGelVv0iFDgG0kqYFPGs6KzH17yR1H5Zk=",
+        "lastModified": 1748851456,
+        "narHash": "sha256-HC5nKyxQLgc7P3aEGBrK2TZPFmc5ht9K7kSbu3vEdNQ=",
         "owner": "keonly",
         "repo": "nvf-config",
-        "rev": "e8d3adae37270793e3c91f7023884ce569bbec4b",
+        "rev": "aec7f6dc05380b1250db5945728908f441a2327c",
         "type": "github"
       },
       "original": {
