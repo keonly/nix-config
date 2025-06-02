@@ -16,6 +16,7 @@
   nh.enable = true;
   nushell.enable = true;
   ripgrep.enable = true;
+  spotify-player.enable = true;
   starship.enable = true;
   thefuck.enable = true;
   vesktop.enable = true;
