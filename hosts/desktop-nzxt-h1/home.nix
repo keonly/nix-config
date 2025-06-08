@@ -4,6 +4,7 @@
   direnv.enable = true;
   eza.enable = true;
   fd.enable = true;
+  firefox.enable = true;
   fish.enable = true;
   fzf.enable = true;
   gh.enable = true;
@@ -12,7 +13,6 @@
   k9s.enable = true;
   kubecolor.enable = true;
   lazygit.enable = true;
-  librewolf.enable = true;
   neovim.enable = true;
   nh.enable = true;
   nushell.enable = true;

@@ -43,11 +43,6 @@
 
     casks = [
       "ghostty"
-      {
-        name = "librewolf";
-        # https://librewolf.net/docs/faq/#why-is-librewolf-marked-as-broken
-        args = {no_quarantine = true;};
-      }
       "eloston-chromium" # Ungoogled Chromium
       "karabiner-elements"
       "raycast"
