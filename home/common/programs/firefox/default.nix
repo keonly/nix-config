@@ -4,10 +4,18 @@
   config,
   nix-helpers,
   arkenfox-nixos,
-  textfox,
   firefox-addons,
   ...
 }: let
+  ff-ultima = pkgs.fetchFromGitHub {
+    owner = "keonly";
+    repo = "FF-ULTIMA";
+    tag = "v2.6.0";
+    sha256 = "sha256-v+9W5rqxlRpucW3mFVA9Zm6ZUGrpLrG0wTLpaKkWvU4=";
+  };
+
+  defaultProfileName = "default";
+
   firefoxVersion = "${lib.versions.major config.programs.firefox.package.version}.0";
   arkenfoxVersion = nix-helpers.lib.versions.largestVersion arkenfox-nixos.lib.arkenfox.supportedVersions;
 in {
@@ -17,7 +25,6 @@ in {
 
   imports = [
     arkenfox-nixos.hmModules.arkenfox
-    textfox.homeManagerModules.default
   ];
 
   config = lib.mkIf config.firefox.enable {
@@ -33,6 +40,7 @@ in {
 
     programs.firefox = {
       enable = true;
+      package = pkgs.firefox;
 
       arkenfox = {
         enable = true;
@@ -41,26 +49,28 @@ in {
 
       policies = import ./policies.nix;
       profiles = {
-        "default" = {
+        "${defaultProfileName}" = {
+          preConfig = builtins.readFile "${ff-ultima}/user.js";
+
+          extensions = import ./extensions.nix {inherit pkgs firefox-addons;};
+          search = import ./search.nix {inherit pkgs;};
+
           arkenfox = {
             enable = true;
             enableAllSections = true;
           };
-          extensions = import ./extensions.nix {inherit pkgs firefox-addons;};
-          search = import ./search.nix {inherit pkgs;};
         };
       };
     };
 
-    textfox = {
-      enable = true;
-
-      profile = "default";
-      useLegacyExtensions = false;
-      config = {
-        border = {
-          radius = "4px";
-        };
+    home.file = let
+      profilePath =
+        if pkgs.stdenv.isDarwin
+        then "Library/Application\ Support/Firefox/Profiles"
+        else ".mozilla/firefox";
+    in {
+      "${profilePath}/${defaultProfileName}/chrome" = {
+        source = ff-ultima;
       };
     };
   };
