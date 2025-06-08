@@ -15,9 +15,9 @@
   neovim.enable = true;
   nh.enable = true;
   nushell.enable = true;
+  pay-respects.enable = true;
   ripgrep.enable = true;
   starship.enable = true;
-  thefuck.enable = true;
   yazi.enable = true;
   zellij.enable = true;
   zoxide.enable = true;
