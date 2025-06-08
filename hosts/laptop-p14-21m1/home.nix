@@ -5,6 +5,7 @@
   direnv.enable = true;
   eza.enable = true;
   fd.enable = true;
+  firefox.enable = true;
   fish.enable = true;
   fzf.enable = true;
   gh.enable = true;
