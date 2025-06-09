@@ -11,6 +11,7 @@
   fzf.enable = true;
   gh.enable = true;
   ghostty.enable = true;
+  gh-dash.enable = true;
   gitui.enable = true;
   k9s.enable = true;
   kubecolor.enable = true;
