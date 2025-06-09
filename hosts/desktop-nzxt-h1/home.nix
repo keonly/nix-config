@@ -1,6 +1,7 @@
 {...}: {
   bat.enable = true;
   btop.enable = true;
+  carapace.enable = true;
   direnv.enable = true;
   eza.enable = true;
   fd.enable = true;
