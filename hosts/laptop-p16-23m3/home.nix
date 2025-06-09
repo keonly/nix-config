@@ -2,6 +2,7 @@
   awscli.enable = true;
   bat.enable = true;
   btop.enable = true;
+  carapace.enable = true;
   direnv.enable = true;
   eza.enable = true;
   firefox.enable = true;
