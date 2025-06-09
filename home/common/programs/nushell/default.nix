@@ -19,6 +19,8 @@
         yz = "yazi";
       };
 
+      configFile.source = ./carppuccin-mocha.nu;
+
       settings = {
         show_banner = false;
         ls = {
