@@ -4,6 +4,7 @@
   git-hooks-nix,
   haumea,
   nix-helpers,
+  catppuccin,
   ...
 } @ inputs: let
   lib = nixpkgs.lib;
@@ -27,10 +28,13 @@
         inherit system;
         config.allowUnfree = true;
       };
+    }
+    // {
+      catppuccinModule = catppuccin.homeModules.catppuccin;
     };
 
   args = {
-    inherit inputs lib extraLib vars mkSpecialArgs haumea nix-helpers;
+    inherit inputs lib extraLib vars mkSpecialArgs haumea nix-helpers catppuccin;
   };
 
   systems =

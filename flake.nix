@@ -65,5 +65,9 @@
         nix-helpers.follows = "nix-helpers";
       };
     };
+
+    catppuccin = {
+      url = "github:keonly/nix";
+    };
   };
 }
