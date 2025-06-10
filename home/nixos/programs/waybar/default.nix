@@ -8,6 +8,8 @@
   };
 
   config = lib.mkIf config.waybar.enable {
+    catppuccin.waybar.enable = false;
+
     programs.waybar = {
       enable = true;
 
