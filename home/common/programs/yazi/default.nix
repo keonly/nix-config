@@ -17,6 +17,9 @@ in {
   };
 
   config = lib.mkIf config.yazi.enable {
+    # Disable yazi because it's kinda hard to monkeypatch other options
+    catppuccin.yazi.enable = false;
+
     programs.yazi = {
       enable = true;
 
@@ -27,7 +30,7 @@ in {
       enableZshIntegration = true;
 
       settings = {
-        manager = {
+        mgr = {
           sort_dir_first = true;
           show_hidden = true;
         };
@@ -36,7 +39,7 @@ in {
       theme = import ./theme.nix;
 
       keymap = {
-        manager = {
+        mgr = {
           prepend_keymap = [
             {
               on = ["c" "m"];

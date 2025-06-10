@@ -8,7 +8,7 @@
   specialArgs,
   ...
 }: let
-  inherit (inputs) nixpkgs home-manager;
+  inherit (inputs) nixpkgs home-manager catppuccin;
 
   mkHmBlock = import ./home-manager.nix;
   hmBlock = mkHmBlock {
@@ -20,6 +20,7 @@ in
     inherit system specialArgs;
     modules =
       nixosModules
+      ++ [catppuccin.nixosModules.catppuccin]
       ++ (
         lib.optionals (homeModules != []) [hmBlock]
       );
