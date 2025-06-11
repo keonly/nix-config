@@ -1,10 +1,9 @@
 {
   vars,
   nix-helpers,
-  catppuccinModule,
   ...
 }: {
-  imports = nix-helpers.lib.path.collectImportsList ./. ++ [catppuccinModule];
+  imports = nix-helpers.lib.path.collectImportsList ./.;
 
   home = {
     inherit (vars) username;
@@ -18,11 +17,5 @@
     # the Home Manager release notes for a list of state version
     # changes in each release.
     stateVersion = "24.11";
-  };
-
-  catppuccin = {
-    enable = true;
-    flavor = "mocha";
-    accent = "blue";
   };
 }

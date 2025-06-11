@@ -20,7 +20,6 @@ in
     inherit system specialArgs;
     modules =
       nixosModules
-      ++ [catppuccin.nixosModules.catppuccin]
       ++ (
         lib.optionals (homeModules != []) [hmBlock]
       );

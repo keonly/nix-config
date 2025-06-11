@@ -1,4 +1,6 @@
 {...}: {
+  theme.enable = true;
+
   bat.enable = true;
   btop.enable = true;
   carapace.enable = true;
