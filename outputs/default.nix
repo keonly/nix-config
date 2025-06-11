@@ -28,9 +28,6 @@
         inherit system;
         config.allowUnfree = true;
       };
-    }
-    // {
-      catppuccinModule = catppuccin.homeModules.catppuccin;
     };
 
   args = {
