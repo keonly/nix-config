@@ -1,6 +1,7 @@
 {...}: {
   theme.enable = true;
 
+  atuin.enable = true;
   awscli.enable = true;
   bat.enable = true;
   btop.enable = true;
