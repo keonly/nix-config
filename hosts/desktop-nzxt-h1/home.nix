@@ -30,6 +30,7 @@
   zellij.enable = true;
   zoxide.enable = true;
 
+  bash.enable = true;
   rofi.enable = true;
   sway.enable = true;
   waybar.enable = true;
