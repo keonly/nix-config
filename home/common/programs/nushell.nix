@@ -12,11 +12,18 @@
       enable = true;
 
       shellAliases = {
-        nv = "nvim";
-        lg = "lazygit";
-        ll = "ls -la";
+        b = "bat";
+        d = "docker";
+        f = "fd";
+        g = "lazygit";
         k = "kubecolor";
-        yz = "yazi";
+        l = "ls";
+        ll = "ls -la";
+        r = "rg";
+        s = "sudo";
+        t = "tmux";
+        v = "nvim";
+        y = "yazi";
       };
 
       settings = {
