@@ -3,9 +3,7 @@
   config,
   lib,
   ...
-}: let
-  mod = "Mod1";
-in {
+}: {
   options = {
     sway.enable = lib.mkEnableOption "Whether to enable sway";
   };
@@ -13,14 +11,18 @@ in {
   config = lib.mkIf config.sway.enable {
     wayland.windowManager.sway = {
       enable = true;
-      systemd.enable = true;
-      extraOptions = ["--unsupported-gpu"];
+      package = pkgs.swayfx.override {
+        extraOptions = ["--unsupported-gpu"];
+      };
+      checkConfig = false;
 
       config = import ./config.nix {inherit pkgs config lib;};
       extraConfig = ''
+        corner_radius 4
         workspace 1
       '';
 
+      systemd.enable = true;
       wrapperFeatures = {gtk = true;};
     };
   };
