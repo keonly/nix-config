@@ -88,9 +88,6 @@ in
           in
             builtins.toString script;
         };
-
-        # Spell check
-        typos.enable = true;
       };
 
       devShells.default = pkgs.mkShell {
