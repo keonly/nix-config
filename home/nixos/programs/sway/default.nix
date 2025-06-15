@@ -19,6 +19,8 @@
       config = import ./config.nix {inherit pkgs config lib;};
       extraConfig = ''
         corner_radius 4
+        shadows enable
+
         workspace 1
       '';
 
