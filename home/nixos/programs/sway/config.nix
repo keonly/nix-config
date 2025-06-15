@@ -98,7 +98,7 @@ in {
 
       "${mod}+q" = "kill";
 
-      "${mod}+b" = "split h";
+      "${mod}+x" = "split h";
       "${mod}+v" = "split v";
       "${mod}+f" = "fullscreen toggle";
       "${mod}+a" = "focus parent";
@@ -114,8 +114,27 @@ in {
 
       "${mod}+Shift+r" = "exec swaymsg reload";
       "${mod}+Ctrl+q" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
+
+      "${mod}+r" = "mode resize";
     }
   ];
+
+  modes = {
+    resize = {
+      Escape = "mode default";
+      Return = "mode default";
+
+      Down = "resize shrink height 10 px";
+      Left = "resize grow width 10 px";
+      Right = "resize shrink width 10 px";
+      Up = "resize grow height 10 px";
+
+      h = "resize grow width 10 px";
+      j = "resize shrink height 10 px";
+      k = "resize grow height 10 px";
+      l = "resize shrink width 10 px";
+    };
+  };
 
   focus = {
     followMouse = false;
