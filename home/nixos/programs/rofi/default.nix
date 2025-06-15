@@ -41,6 +41,11 @@ in {
         text = builtins.readFile ./config/script/powermenu.sh;
         executable = true;
       };
+      "rofi/script/emoji.sh" = {
+        enable = true;
+        text = builtins.readFile ./config/script/emoji.sh;
+        executable = true;
+      };
       "rofi/config.rasi" = {
         enable = true;
         text = builtins.readFile ./config/config.rasi;

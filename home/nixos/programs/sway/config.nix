@@ -94,6 +94,7 @@ in {
       "${mod}+Return" = "exec --no-startup-id ${pkgs.ghostty}/bin/ghostty";
       "${mod}+space" = "exec --no-startup-id rofi -show drun -theme ${config.xdg.configHome}/rofi/style/launcher.rasi";
       "${mod}+Escape" = "exec --no-startup-id ${config.xdg.configHome}/rofi/script/powermenu.sh";
+      "${mod}+Ctrl+space" = "exec --no-startup-id ${config.xdg.configHome}/rofi/script/emoji.sh";
 
       "${mod}+q" = "kill";
 
