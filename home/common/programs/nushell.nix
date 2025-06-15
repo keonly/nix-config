@@ -41,6 +41,21 @@
         PROMPT_INDICATOR_VI_NORMAL = "󰁍 ";
         PROMPT_MULTILINE_INDICATOR = "::: ";
       };
+
+      extraConfig =
+        # nu
+        ''
+          $env.config = {
+            keybindings: [
+              {
+                modifier: control
+                keycode: space
+                mode: [emacs, vi_normal, vi_insert]
+                event: null
+              }
+            ]
+          }
+        '';
     };
   };
 }
