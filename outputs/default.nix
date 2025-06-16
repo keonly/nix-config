@@ -71,8 +71,7 @@ in
 
         # YAML
         check-yaml.enable = true;
-        yamlfmt.enable = true;
-        yamllint.enable = true;
+        sort-simple-yaml.enable = true;
 
         # Secret detection
         # trufflehog.enable = true;
