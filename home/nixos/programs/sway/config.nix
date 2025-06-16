@@ -100,8 +100,8 @@ in {
 
       "${mod}+q" = "kill";
 
-      "${mod}+x" = "split h";
-      "${mod}+v" = "split v";
+      "${mod}+v" = "split h";
+      "${mod}+x" = "split v";
       "${mod}+f" = "fullscreen toggle";
       "${mod}+a" = "focus parent";
 
