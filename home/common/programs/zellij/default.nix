@@ -1,6 +1,9 @@
 {
-  lib,
   config,
+  pkgs,
+  lib,
+  inputs,
+  sources,
   ...
 }: let
   plugins = {

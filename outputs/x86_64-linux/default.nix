@@ -3,12 +3,13 @@
   mkSpecialArgs,
   system,
   vars,
+  sources,
   haumea,
   nix-helpers,
   ...
 } @ args: let
   specialArgs = mkSpecialArgs {
-    inherit inputs system vars;
+    inherit inputs sources system vars;
   };
 in
   {

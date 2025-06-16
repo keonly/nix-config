@@ -1,4 +1,4 @@
-{...}: {
+{
   theme.enable = true;
 
   atuin.enable = true;
