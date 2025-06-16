@@ -1,0 +1,76 @@
+{
+  "pins": {
+    "firefox-ultima": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "keonly",
+        "repo": "FF-ULTIMA"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v2.6.0",
+      "revision": "1379ab70cadd53992ee59227feb2b9592c8891b4",
+      "url": "https://api.github.com/repos/keonly/FF-ULTIMA/tarball/v2.6.0",
+      "hash": "0kmx2slnis9jq6sb2bp9d989jvk67m81brkdf5p1m5dipbk5dvxz"
+    },
+    "tmux-catppuccin": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "tmux"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v2.1.3",
+      "revision": "b2f219c00609ea1772bcfbdae0697807184743e4",
+      "url": "https://api.github.com/repos/catppuccin/tmux/tarball/v2.1.3",
+      "hash": "0v3vji240mykfxf573kpwjmnswil0f9j7srqlhq74ca9ar1h5k92"
+    },
+    "tmux-nvim": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "aserowy",
+        "repo": "tmux.nvim"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "2c1c3be0ef287073cef963f2aefa31a15c8b9cd8",
+      "url": "https://github.com/aserowy/tmux.nvim/archive/2c1c3be0ef287073cef963f2aefa31a15c8b9cd8.tar.gz",
+      "hash": "0md775rhl7cxkfdbrkrsirr2093dfsf6jhvn9naqb5px1alj6wpx"
+    },
+    "yazi-plugins": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "yazi-rs",
+        "repo": "plugins"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "aeca767ec27bfbea66873d667a729791de18f364",
+      "url": "https://github.com/yazi-rs/plugins/archive/aeca767ec27bfbea66873d667a729791de18f364.tar.gz",
+      "hash": "16xz3hl79r39160qr924ns2kyvf5nz74wik15xha2yj6r6bxfj22"
+    },
+    "yazi-starship": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Rolv-Apneseth",
+        "repo": "starship.yazi"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "6a0f3f788971b155cbc7cec47f6f11aebbc148c9",
+      "url": "https://github.com/Rolv-Apneseth/starship.yazi/archive/6a0f3f788971b155cbc7cec47f6f11aebbc148c9.tar.gz",
+      "hash": "1pqbn786sl31ajcaixiwgrb37yj6vdn2491pzgy0pf20h9iv8ldb"
+    }
+  },
+  "version": 5
+}
