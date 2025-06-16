@@ -11,20 +11,28 @@
     programs.nushell = {
       enable = true;
 
-      shellAliases = {
-        b = "bat";
-        d = "docker";
-        f = "fd";
-        g = "lazygit";
-        k = "kubecolor";
-        l = "ls";
-        ll = "ls -la";
-        r = "rg";
-        s = "sudo";
-        t = "tmux";
-        v = "nvim";
-        y = "yazi";
-      };
+      shellAliases = let
+        direnvWrap = cmd:
+          if config.direnv.enable
+          then "direnv exec / ${cmd}"
+          else "${cmd}";
+      in
+        {
+          b = "bat";
+          d = "docker";
+          f = "fd";
+          g = "lazygit";
+          k = "kubecolor";
+          l = "ls";
+          ll = "ls -la";
+          r = "rg";
+          s = "sudo";
+          y = "yazi";
+        }
+        // {
+          t = direnvWrap "tmux";
+          v = direnvWrap "nvim";
+        };
 
       settings = {
         show_banner = false;
