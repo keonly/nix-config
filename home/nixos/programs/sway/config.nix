@@ -1,7 +1,9 @@
 {
+  config,
   pkgs,
   lib,
-  config,
+  inputs,
+  sources,
   ...
 }: let
   mod = "Mod1";

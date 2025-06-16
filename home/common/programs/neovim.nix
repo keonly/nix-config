@@ -1,11 +1,12 @@
 {
+  config,
   pkgs,
   lib,
-  config,
-  nvf-config,
+  inputs,
+  sources,
   ...
 }: let
-  neovim = nvf-config.packages.${pkgs.system}.default;
+  neovim = inputs.nvf-config.packages.${pkgs.system}.default;
 in {
   options = {
     neovim.enable = lib.mkEnableOption "Whether to enable neovim with nvf";

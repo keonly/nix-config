@@ -1,18 +1,14 @@
 {
+  config,
   pkgs,
   lib,
-  config,
-  nix-helpers,
-  arkenfox-nixos,
-  firefox-addons,
+  inputs,
+  sources,
   ...
 }: let
-  ff-ultima = pkgs.fetchFromGitHub {
-    owner = "keonly";
-    repo = "FF-ULTIMA";
-    tag = "v2.6.0";
-    sha256 = "sha256-v+9W5rqxlRpucW3mFVA9Zm6ZUGrpLrG0wTLpaKkWvU4=";
-  };
+  inherit (inputs) nix-helpers arkenfox-nixos firefox-addons;
+
+  ff-ultima = sources.firefox-ultima;
 
   defaultProfileName = "default";
 

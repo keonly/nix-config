@@ -1,8 +1,10 @@
 {
+  inputs,
   vars,
-  nix-helpers,
   ...
-}: {
+}: let
+  inherit (inputs) nix-helpers;
+in {
   imports = nix-helpers.lib.path.collectImportsList ./.;
 
   home = {

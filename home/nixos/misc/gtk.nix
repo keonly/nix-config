@@ -1,4 +1,11 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  sources,
+  ...
+}: {
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;

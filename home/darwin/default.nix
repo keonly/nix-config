@@ -1,8 +1,10 @@
 {
+  inputs,
   vars,
-  nix-helpers,
   ...
 }: let
+  inherit (inputs) nix-helpers;
+
   commonImports = [../common];
   darwinImports = nix-helpers.lib.path.collectImportsList ./.;
 in {

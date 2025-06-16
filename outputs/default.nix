@@ -7,16 +7,18 @@
   catppuccin,
   ...
 } @ inputs: let
-  lib = nixpkgs.lib;
+  inherit (nixpkgs) lib;
   extraLib = import ../lib {inherit lib haumea;};
   vars = import ../vars {inherit lib;};
+  sources = import ../npins;
 
   mkSpecialArgs = {
     inputs,
     system,
     vars,
+    sources,
   }:
-    inputs
+    {inherit inputs sources;}
     // {
       inherit vars;
       pkgs-unstable = import inputs.nixpkgs-unstable {
@@ -31,7 +33,7 @@
     };
 
   args = {
-    inherit inputs lib extraLib vars mkSpecialArgs haumea nix-helpers catppuccin;
+    inherit inputs lib extraLib vars sources mkSpecialArgs haumea nix-helpers catppuccin;
   };
 
   systems =
