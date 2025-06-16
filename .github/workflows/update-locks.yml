@@ -1,0 +1,61 @@
+---
+name: Update lockfiles
+on:
+  schedule:
+    # run everyday on UTC 00:00
+    - cron: 0 0 * * *
+  workflow_dispatch:
+jobs:
+  flake:
+    name: Update flake.lock
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+      - name: Update Flakes
+        run: |
+          nix flake update
+      - name: Create pull request
+        id: create-pull-request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ github.token }}
+          commit-message: 'chore: update flakes'
+          title: 'chore: update flakes'
+          signoff: true
+          sign-commits: true
+          branch: chore/update-flake-lock
+  deps:
+    name: Update npins sources
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+      - name: Install npins
+        run: |
+          nix profile install 'nixpkgs#npins'
+      - name: Update pins
+        run: |
+          npins update --full
+      - name: Create pull request
+        id: create-pull-request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ github.token }}
+          commit-message: 'chore: update npins sources'
+          title: 'chore: update npins sources'
+          signoff: true
+          sign-commits: true
+          branch: chore/update-npins
