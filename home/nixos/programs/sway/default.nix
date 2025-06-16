@@ -18,7 +18,7 @@
       };
       checkConfig = false;
 
-      config = import ./config.nix {inherit pkgs config lib;};
+      config = import ./config.nix {inherit config pkgs lib inputs sources;};
       extraConfig = ''
         corner_radius 4
         shadows enable
