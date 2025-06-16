@@ -71,6 +71,7 @@ in
 
         # YAML
         check-yaml.enable = true;
+        sort-simple-yaml.enable = true;
 
         # Secret detection
         # trufflehog.enable = true;
