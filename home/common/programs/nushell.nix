@@ -23,7 +23,6 @@
         {
           b = "bat";
           d = "docker";
-          f = "fd";
           g = "lazygit";
           k = "kubecolor";
           l = "ls";
