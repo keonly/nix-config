@@ -7,8 +7,7 @@
   ...
 }: let
   inherit (inputs) nix-helpers arkenfox-nixos firefox-addons;
-
-  ff-ultima = sources.firefox-ultima;
+  inherit (sources) firefox-ultima;
 
   defaultProfileName = "default";
 
@@ -46,7 +45,7 @@ in {
       policies = import ./policies.nix;
       profiles = {
         "${defaultProfileName}" = {
-          preConfig = builtins.readFile "${ff-ultima}/user.js";
+          preConfig = builtins.readFile "${firefox-ultima}/user.js";
 
           extensions = import ./extensions.nix {inherit pkgs firefox-addons;};
           search = import ./search.nix {inherit pkgs;};
@@ -66,7 +65,7 @@ in {
         else ".mozilla/firefox";
     in {
       "${profilePath}/${defaultProfileName}/chrome" = {
-        source = ff-ultima;
+        source = firefox-ultima;
       };
     };
   };

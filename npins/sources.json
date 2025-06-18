@@ -5,16 +5,16 @@
       "repository": {
         "type": "GitHub",
         "owner": "keonly",
-        "repo": "FF-ULTIMA"
+        "repo": "firefox-ultima"
       },
       "pre_releases": false,
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": false,
-      "version": "v2.6.0",
-      "revision": "1379ab70cadd53992ee59227feb2b9592c8891b4",
-      "url": "https://api.github.com/repos/keonly/FF-ULTIMA/tarball/v2.6.0",
-      "hash": "0kmx2slnis9jq6sb2bp9d989jvk67m81brkdf5p1m5dipbk5dvxz"
+      "version": "v2.7.0",
+      "revision": "9e85b5f4003cc149d4f92df1f4d7eb9594b7569a",
+      "url": "https://api.github.com/repos/keonly/firefox-ultima/tarball/v2.7.0",
+      "hash": "0rg057ir8lq1v57br7igfa7xj4yf1cq6gm59i1wkv3dw5zv31akr"
     },
     "tmux-catppuccin": {
       "type": "GitRelease",
@@ -54,9 +54,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "aeca767ec27bfbea66873d667a729791de18f364",
-      "url": "https://github.com/yazi-rs/plugins/archive/aeca767ec27bfbea66873d667a729791de18f364.tar.gz",
-      "hash": "16xz3hl79r39160qr924ns2kyvf5nz74wik15xha2yj6r6bxfj22"
+      "revision": "86d28e4fb4f25f36cc501b8cb0badb37a6b14263",
+      "url": "https://github.com/yazi-rs/plugins/archive/86d28e4fb4f25f36cc501b8cb0badb37a6b14263.tar.gz",
+      "hash": "06lvynqanbmri1f52nq2m8s6381ycacn8df4fl45jwdl7560ky4v"
     },
     "yazi-starship": {
       "type": "Git",
