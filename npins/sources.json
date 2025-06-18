@@ -12,9 +12,9 @@
       "release_prefix": null,
       "submodules": false,
       "version": "v2.7.0",
-      "revision": "9e85b5f4003cc149d4f92df1f4d7eb9594b7569a",
+      "revision": "94a2094081d473bc24303eb11d47b55079863289",
       "url": "https://api.github.com/repos/keonly/firefox-ultima/tarball/v2.7.0",
-      "hash": "0rg057ir8lq1v57br7igfa7xj4yf1cq6gm59i1wkv3dw5zv31akr"
+      "hash": "13x6wi5km07vmilvbppycs4sld5zc8h7f9ai53z3hqvgr89i3v1b"
     },
     "tmux-catppuccin": {
       "type": "GitRelease",
