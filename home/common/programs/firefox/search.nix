@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  default = "startpage";
+  default = "leta";
   force = true;
 
   engines = {
@@ -32,10 +32,10 @@
       definedAliases = ["@nw"];
     };
 
-    startpage = {
-      name = "Startpage";
-      urls = [{template = "https://www.startpage.com/sp/search?query={searchTerms}&cat=web&pl=opensearch";}];
-      definedAliases = ["@s"];
+    leta = {
+      name = "leta";
+      urls = [{template = "https://leta.mullvad.net/search?q={searchTerms}&engine=google";}];
+      definedAliases = ["@l"];
     };
 
     "google".metaData.hidden = true;
