@@ -54,9 +54,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "42f64c01c49af5ef077672dd581f52867642f02a",
-      "url": "https://github.com/yazi-rs/plugins/archive/42f64c01c49af5ef077672dd581f52867642f02a.tar.gz",
-      "hash": "1vh30wyrgyna74mhv629dp201l5pmk814baq61b55hbq1zy9dy40"
+      "revision": "2ad42fa7065b4885ff058280b4ab4309c11a5755",
+      "url": "https://github.com/yazi-rs/plugins/archive/2ad42fa7065b4885ff058280b4ab4309c11a5755.tar.gz",
+      "hash": "0n99366jqw1353g65cafm7kmhmm47xk870hgyc00v40ql4wy4l7q"
     },
     "yazi-starship": {
       "type": "Git",
