@@ -43,7 +43,7 @@
 
     casks = [
       "ghostty"
-      "eloston-chromium" # Ungoogled Chromium
+      "ungoogled-chromium"
       "karabiner-elements"
       "raycast"
       "colemak-dh"
