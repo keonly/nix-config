@@ -200,15 +200,8 @@ panelview .toolbarbutton-1,
   display: none !important;
 }
 
-/*
-#reader-mode-button {
-  display: none !important;
-}
-*/
-
-#star-button {
-  display: none;
-}
+/* #reader-mode-button { display: none !important; } */
+/* #star-button { display: none; } */
 /* #star-button-box:hover { background: inherit !important; } */
 
 #urlbar-searchmode-switcher {
