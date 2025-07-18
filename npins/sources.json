@@ -1,21 +1,5 @@
 {
   "pins": {
-    "firefox-ultima": {
-      "type": "GitRelease",
-      "repository": {
-        "type": "GitHub",
-        "owner": "keonly",
-        "repo": "firefox-ultima"
-      },
-      "pre_releases": false,
-      "version_upper_bound": null,
-      "release_prefix": null,
-      "submodules": false,
-      "version": "v2.7.0",
-      "revision": "94a2094081d473bc24303eb11d47b55079863289",
-      "url": "https://api.github.com/repos/keonly/firefox-ultima/tarball/v2.7.0",
-      "hash": "13x6wi5km07vmilvbppycs4sld5zc8h7f9ai53z3hqvgr89i3v1b"
-    },
     "tmux-catppuccin": {
       "type": "GitRelease",
       "repository": {
