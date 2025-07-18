@@ -10,7 +10,6 @@
     youtube-no-translation
     firefox-color
     stylus
-    sidebery
     temporary-containers
     tridactyl
   ];

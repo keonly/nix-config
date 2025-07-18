@@ -45,10 +45,9 @@ in {
       policies = import ./policies.nix;
       profiles = {
         "${defaultProfileName}" = {
-          preConfig = builtins.readFile "${firefox-ultima}/user.js";
-
           extensions = import ./extensions.nix {inherit pkgs firefox-addons;};
           search = import ./search.nix {inherit pkgs;};
+          userChrome = builtins.readFile ./userChrome.css;
 
           arkenfox = {
             enable = true;
@@ -64,8 +63,9 @@ in {
         then "Library/Application\ Support/Firefox/Profiles"
         else ".mozilla/firefox";
     in {
-      "${profilePath}/${defaultProfileName}/chrome" = {
-        source = firefox-ultima;
+      "${profilePath}/${defaultProfileName}/chrome/styles" = {
+        source = ./styles;
+        recursive = true;
       };
     };
   };
