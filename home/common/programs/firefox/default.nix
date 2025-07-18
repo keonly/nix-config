@@ -7,7 +7,6 @@
   ...
 }: let
   inherit (inputs) nix-helpers arkenfox-nixos firefox-addons;
-  inherit (sources) firefox-ultima;
 
   defaultProfileName = "default";
 
