@@ -38,6 +38,12 @@ in {
             set -g @tmux-which-key-xdg-plugin-path "tmux-plugins/tmux-which-key"
           '';
         }
+        {
+          plugin = pkgs.tmuxPlugins.resurrect;
+        }
+        {
+          plugin = pkgs.tmuxPlugins.continuum;
+        }
       ];
 
       baseIndex = 1;
