@@ -76,19 +76,19 @@ in
         sort-simple-yaml.enable = true;
 
         # Secret detection
-        # trufflehog.enable = true;
-        trufflehog-custom = {
-          enable = true;
-          description = "Temporary fix for https://github.com/cachix/git-hooks.nix/issues/584";
-          pass_filenames = false;
-          entry = let
-            script = pkgs.writeShellScript "precommit-trufflehog" ''
-              set -e
-              ${pkgs.trufflehog}/bin/trufflehog git "file://$(git rev-parse --show-top-level)" --since-commit HEAD --only-verified --fail
-            '';
-          in
-            builtins.toString script;
-        };
+        trufflehog.enable = true;
+        # trufflehog-custom = {
+        #   enable = true;
+        #   description = "Temporary fix for https://github.com/cachix/git-hooks.nix/issues/584";
+        #   pass_filenames = false;
+        #   entry = let
+        #     script = pkgs.writeShellScript "precommit-trufflehog" ''
+        #       set -e
+        #       ${pkgs.trufflehog}/bin/trufflehog git "file://$(git rev-parse --show-top-level)" --since-commit HEAD --only-verified --fail
+        #     '';
+        #   in
+        #     builtins.toString script;
+        # };
       };
 
       devShells.default = pkgs.mkShell {
