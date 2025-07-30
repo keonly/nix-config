@@ -14,10 +14,6 @@ in {
     sway
   ];
 
-  services.displayManager.ly.settings = {
-    waylandsessions = "${pkgs.sway}/share/wayland-sessions";
-  };
-
   networking = {
     inherit hostName;
   };

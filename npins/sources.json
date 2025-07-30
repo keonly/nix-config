@@ -1,5 +1,21 @@
 {
   "pins": {
+    "ff-ultima": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "soulhotel",
+        "repo": "ff-ultima"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "3.3",
+      "revision": "2cc6cb16e15668c51cb32c0d6be857a72413f741",
+      "url": "https://api.github.com/repos/soulhotel/ff-ultima/tarball/3.3",
+      "hash": "09yi70wpsjnlaaanrbmfw8gy0vdwc0db3v1pfya5c70iwmp23c37"
+    },
     "tmux-catppuccin": {
       "type": "GitRelease",
       "repository": {

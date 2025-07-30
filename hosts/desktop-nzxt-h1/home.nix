@@ -32,7 +32,9 @@
   zoxide.enable = true;
 
   bash.enable = true;
+  hyprland.enable = true;
+  quickshell.enable = true;
   rofi.enable = true;
-  sway.enable = true;
+  # sway.enable = true;
   waybar.enable = true;
 }

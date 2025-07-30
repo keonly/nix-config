@@ -21,5 +21,10 @@
       name = "Iosevka Nerd Font Mono";
       size = 12;
     };
+
+    iconTheme = {
+      package = pkgs.adwaita-icon-theme;
+      name = "Adwaita";
+    };
   };
 }
