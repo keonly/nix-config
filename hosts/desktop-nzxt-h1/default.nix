@@ -25,5 +25,6 @@ in {
   kime.enable = true;
   nvidia.enable = true;
   pipewire.enable = true;
+  wayland.enable = true;
   xdg-portal.enable = true;
 }
